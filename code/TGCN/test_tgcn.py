@@ -8,6 +8,8 @@ from sklearn.metrics import accuracy_score
 
 from tgcn_model import GCN_muti_att
 
+from pathlib import Path
+
 
 def test(model, test_loader):
     # set model as testing mode
@@ -86,14 +88,15 @@ def compute_top_n_accuracy(truths, preds, n):
 
 
 if __name__ == '__main__':
-
-    # change root and subset accordingly.
-    root = '/media/anudisk/github/WLASL'
-    trained_on = 'asl2000'
+    root = Path('../..')
+    subset = 'asl100'
 
     checkpoint = 'ckpt.pth'
 
-    split_file = os.path.join(root, 'data/splits/{}.json'.format(trained_on))
+    split_file = root / f'data/splits/{subset}.json'
+    pose_data_root = root / 'data/pose_per_individual_videos'
+    config_file = root / f'code/TGCN/archived/{trained_on}/{trained_on}.ini'
+    
     # test_on_split_file = os.path.join(root, 'data/splits-with-dialect-annotated/{}.json'.format(tested_on))
 
     pose_data_root = os.path.join(root, 'data/pose_per_individual_videos')

@@ -85,42 +85,42 @@ def compute_top_n_accuracy(truths, preds, n):
     return float(successes) / ts.shape[0]
 
 if __name__ == '__main__':
+    print(len([x[0] for x in os.walk('../../../../../../large/u2008310/data/pose_per_individual_videos')]))
+    # # change root and subset accordingly.
+    # root = '/media/anudisk/github/WLASL'
+    # trained_on = 'asl100'
 
-    # change root and subset accordingly.
-    root = '/media/anudisk/github/WLASL'
-    trained_on = 'asl100'
+    # checkpoint = 'ckpt.pth'
 
-    checkpoint = 'ckpt.pth'
+    # split_file = os.path.join(root, 'data/splits/{}.json'.format(trained_on))
+    # # test_on_split_file = os.path.join(root, 'data/splits-with-dialect-annotated/{}.json'.format(tested_on))
 
-    split_file = os.path.join(root, 'data/splits/{}.json'.format(trained_on))
-    # test_on_split_file = os.path.join(root, 'data/splits-with-dialect-annotated/{}.json'.format(tested_on))
+    # pose_data_root = os.path.join(root, 'data/pose_per_individual_videos')
+    # config_file = os.path.join(root, 'code/TGCN/archive/{}/{}.ini'.format(trained_on, trained_on))
+    # configs = Config(config_file)
 
-    pose_data_root = os.path.join(root, 'data/pose_per_individual_videos')
-    config_file = os.path.join(root, 'code/TGCN/archive/{}/{}.ini'.format(trained_on, trained_on))
-    configs = Config(config_file)
+    # num_samples = configs.num_samples
+    # hidden_size = configs.hidden_size
+    # drop_p = configs.drop_p
+    # num_stages = configs.num_stages
+    # batch_size = configs.batch_size
 
-    num_samples = configs.num_samples
-    hidden_size = configs.hidden_size
-    drop_p = configs.drop_p
-    num_stages = configs.num_stages
-    batch_size = configs.batch_size
+    # dataset = Sign_Dataset(index_file_path=split_file, split='test', pose_root=pose_data_root,
+    #                        img_transforms=None, video_transforms=None,
+    #                        num_samples=num_samples,
+    #                        sample_strategy='k_copies',
+    #                        test_index_file=split_file
+    #                        )
+    # data_loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True)
 
-    dataset = Sign_Dataset(index_file_path=split_file, split='test', pose_root=pose_data_root,
-                           img_transforms=None, video_transforms=None,
-                           num_samples=num_samples,
-                           sample_strategy='k_copies',
-                           test_index_file=split_file
-                           )
-    data_loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True)
+    # # setup the model
+    # model = GCN_muti_att(input_feature=num_samples * 2, hidden_feature=hidden_size,
+    #                      num_class=int(trained_on[3:]), p_dropout=drop_p, num_stage=num_stages).cuda()
 
-    # setup the model
-    model = GCN_muti_att(input_feature=num_samples * 2, hidden_feature=hidden_size,
-                         num_class=int(trained_on[3:]), p_dropout=drop_p, num_stage=num_stages).cuda()
+    # print('Loading model...')
 
-    print('Loading model...')
+    # checkpoint = torch.load(os.path.join(root, 'code/TGCN/archive/{}/{}'.format(trained_on, checkpoint)))
+    # model.load_state_dict(checkpoint)
+    # print('Finish loading model!')
 
-    checkpoint = torch.load(os.path.join(root, 'code/TGCN/archive/{}/{}'.format(trained_on, checkpoint)))
-    model.load_state_dict(checkpoint)
-    print('Finish loading model!')
-
-    test(model, data_loader)
+    # test(model, data_loader)

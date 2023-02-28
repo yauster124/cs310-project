@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/dcs/20/u2008310/cs310/WLASL/code/STGCN/train_stacked_gru.py", line 127, in <module>
+    run(split_file=split_file, configs=configs, pose_data_root=pose_data_root)
+  File "/dcs/20/u2008310/cs310/WLASL/code/STGCN/train_stacked_gru.py", line 72, in run
+    train_losses, train_scores, train_gts, train_preds = train_stacked_gru(log_interval, model,
+  File "/dcs/20/u2008310/cs310/WLASL/code/STGCN/train_utils.py", line 80, in train_stacked_gru
+    out = model(X)  # output has dim = (batch, number of classes)
+  File "/dcs/20/u2008310/cs310/cs310-env/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/dcs/20/u2008310/cs310/WLASL/code/STGCN/stacked_gru.py", line 63, in forward
+    _, y = self.gru(x)
+  File "/dcs/20/u2008310/cs310/cs310-env/lib64/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/dcs/20/u2008310/cs310/cs310-env/lib64/python3.9/site-packages/torch/nn/modules/rnn.py", line 953, in forward
+    self.check_forward_args(input, hx, batch_sizes)
+  File "/dcs/20/u2008310/cs310/cs310-env/lib64/python3.9/site-packages/torch/nn/modules/rnn.py", line 234, in check_forward_args
+    self.check_input(input, batch_sizes)
+  File "/dcs/20/u2008310/cs310/cs310-env/lib64/python3.9/site-packages/torch/nn/modules/rnn.py", line 206, in check_input
+    raise RuntimeError(
+RuntimeError: input must have 3 dimensions, got 6
+srun: error: eagle-02: task 0: Exited with exit code 1

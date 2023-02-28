@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/dcs/20/u2008310/cs310/WLASL/code/STGCN/train_stacked_gru.py", line 127, in <module>
+    run(split_file=split_file, configs=configs, pose_data_root=pose_data_root)
+  File "/dcs/20/u2008310/cs310/WLASL/code/STGCN/train_stacked_gru.py", line 72, in run
+    train_losses, train_scores, train_gts, train_preds = train_stacked_gru(log_interval, model,
+  File "/dcs/20/u2008310/cs310/WLASL/code/STGCN/train_utils.py", line 66, in train_stacked_gru
+    for batch_idx, data in enumerate(train_loader):
+  File "/dcs/20/u2008310/cs310/cs310-env/lib64/python3.9/site-packages/torch/utils/data/dataloader.py", line 628, in __next__
+    data = self._next_data()
+  File "/dcs/20/u2008310/cs310/cs310-env/lib64/python3.9/site-packages/torch/utils/data/dataloader.py", line 671, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/dcs/20/u2008310/cs310/cs310-env/lib64/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 58, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/dcs/20/u2008310/cs310/cs310-env/lib64/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 58, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/dcs/20/u2008310/cs310/WLASL/code/STGCN/sign_dataset.py", line 178, in __getitem__
+    x = self._load_poses_in_order(video_id, frame_start, frame_end, self.sample_strategy, self.num_samples)
+  File "/dcs/20/u2008310/cs310/WLASL/code/STGCN/sign_dataset.py", line 266, in _load_poses_in_order
+    print(poses[25][30][3])
+IndexError: index 3 is out of bounds for dimension 0 with size 3
+srun: error: eagle-02: task 0: Exited with exit code 1

@@ -1,0 +1,497 @@
+True
+/dcs/20/u2008310/cs310/WLASL/code/STGCN
+Trained on ../../../../../../large/u2008310/data/splits/asl300.json, tested on ../../../../../../large/u2008310/data/splits/asl300.json
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=71-val_acc=0.44617092119866814-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 37.57%
+
+
+Val. set (668 samples): top-3 Accuracy: 60.03%
+
+
+Val. set (668 samples): top-5 Accuracy: 68.86%
+
+
+Val. set (668 samples): top-10 Accuracy: 79.34%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=36-val_acc=0.3518312985571587-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 32.19%
+
+
+Val. set (668 samples): top-3 Accuracy: 53.89%
+
+
+Val. set (668 samples): top-5 Accuracy: 63.17%
+
+
+Val. set (668 samples): top-10 Accuracy: 74.40%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=94-val_acc=0.45394006659267483-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 38.62%
+
+
+Val. set (668 samples): top-3 Accuracy: 61.08%
+
+
+Val. set (668 samples): top-5 Accuracy: 70.36%
+
+
+Val. set (668 samples): top-10 Accuracy: 79.79%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=45-val_acc=0.41065482796892344-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 32.78%
+
+
+Val. set (668 samples): top-3 Accuracy: 56.59%
+
+
+Val. set (668 samples): top-5 Accuracy: 67.07%
+
+
+Val. set (668 samples): top-10 Accuracy: 78.29%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=29-val_acc=0.32408435072142067-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 30.99%
+
+
+Val. set (668 samples): top-3 Accuracy: 51.65%
+
+
+Val. set (668 samples): top-5 Accuracy: 61.83%
+
+
+Val. set (668 samples): top-10 Accuracy: 74.55%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=39-val_acc=0.3995560488346282-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 35.18%
+
+
+Val. set (668 samples): top-3 Accuracy: 53.44%
+
+
+Val. set (668 samples): top-5 Accuracy: 64.52%
+
+
+Val. set (668 samples): top-10 Accuracy: 76.20%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=31-val_acc=0.3318534961154273-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 30.99%
+
+
+Val. set (668 samples): top-3 Accuracy: 53.89%
+
+
+Val. set (668 samples): top-5 Accuracy: 64.07%
+
+
+Val. set (668 samples): top-10 Accuracy: 77.40%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=33-val_acc=0.341842397336293-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 33.83%
+
+
+Val. set (668 samples): top-3 Accuracy: 52.84%
+
+
+Val. set (668 samples): top-5 Accuracy: 61.83%
+
+
+Val. set (668 samples): top-10 Accuracy: 75.00%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=54-val_acc=0.4184239733629301-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 38.02%
+
+
+Val. set (668 samples): top-3 Accuracy: 60.33%
+
+
+Val. set (668 samples): top-5 Accuracy: 67.37%
+
+
+Val. set (668 samples): top-10 Accuracy: 79.94%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=185-val_acc=0.4683684794672586-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 41.77%
+
+
+Val. set (668 samples): top-3 Accuracy: 62.13%
+
+
+Val. set (668 samples): top-5 Accuracy: 69.31%
+
+
+Val. set (668 samples): top-10 Accuracy: 80.24%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=188-val_acc=0.4816870144284129-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 43.56%
+
+
+Val. set (668 samples): top-3 Accuracy: 63.92%
+
+
+Val. set (668 samples): top-5 Accuracy: 70.51%
+
+
+Val. set (668 samples): top-10 Accuracy: 78.29%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=26-val_acc=0.32297447280799113-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 27.69%
+
+
+Val. set (668 samples): top-3 Accuracy: 49.85%
+
+
+Val. set (668 samples): top-5 Accuracy: 58.23%
+
+
+Val. set (668 samples): top-10 Accuracy: 72.60%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=57-val_acc=0.43507214206437295-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 37.13%
+
+
+Val. set (668 samples): top-3 Accuracy: 58.98%
+
+
+Val. set (668 samples): top-5 Accuracy: 68.71%
+
+
+Val. set (668 samples): top-10 Accuracy: 76.65%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=73-val_acc=0.44728079911209767-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 37.13%
+
+
+Val. set (668 samples): top-3 Accuracy: 57.63%
+
+
+Val. set (668 samples): top-5 Accuracy: 68.56%
+
+
+Val. set (668 samples): top-10 Accuracy: 78.89%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=101-val_acc=0.45615982241953384-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 38.32%
+
+
+Val. set (668 samples): top-3 Accuracy: 59.43%
+
+
+Val. set (668 samples): top-5 Accuracy: 68.71%
+
+
+Val. set (668 samples): top-10 Accuracy: 79.34%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=164-val_acc=0.4672586015538291-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 39.22%
+
+
+Val. set (668 samples): top-3 Accuracy: 60.33%
+
+
+Val. set (668 samples): top-5 Accuracy: 68.56%
+
+
+Val. set (668 samples): top-10 Accuracy: 81.29%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=186-val_acc=0.4772475027746948-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 42.22%
+
+
+Val. set (668 samples): top-3 Accuracy: 62.43%
+
+
+Val. set (668 samples): top-5 Accuracy: 70.66%
+
+
+Val. set (668 samples): top-10 Accuracy: 80.09%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=121-val_acc=0.46614872364039955-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 39.07%
+
+
+Val. set (668 samples): top-3 Accuracy: 60.63%
+
+
+Val. set (668 samples): top-5 Accuracy: 69.31%
+
+
+Val. set (668 samples): top-10 Accuracy: 79.49%
+
+LOADING WEIGHTS...
+checkpoints/asl300/stgcn-epoch=64-val_acc=0.4406215316315205-hidden=1024.pth
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+starting batch: 5
+starting batch: 6
+starting batch: 7
+starting batch: 8
+starting batch: 9
+starting batch: 10
+
+Val. set (668 samples): top-1 Accuracy: 39.22%
+
+
+Val. set (668 samples): top-3 Accuracy: 61.23%
+
+
+Val. set (668 samples): top-5 Accuracy: 68.56%
+
+
+Val. set (668 samples): top-10 Accuracy: 78.89%
+

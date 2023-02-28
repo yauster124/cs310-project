@@ -1,0 +1,20 @@
+Trained on ../../data/splits/asl100.json, tested on ../../data/splits/asl100.json
+LOADING WEIGHTS...
+WEIGHTS LOADED
+starting batch: 0
+starting batch: 1
+starting batch: 2
+starting batch: 3
+starting batch: 4
+
+Val. set (258 samples): top-1 Accuracy: 50.00%
+
+
+Val. set (258 samples): top-3 Accuracy: 68.99%
+
+
+Val. set (258 samples): top-5 Accuracy: 76.36%
+
+
+Val. set (258 samples): top-10 Accuracy: 84.50%
+

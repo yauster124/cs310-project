@@ -9,8 +9,11 @@ from torch.utils.data import Dataset
 import utils
 from configs import Config
 from tgcn_model import GCN_muti_att
+# from tgcn_dense import TGCN_GRU
+from tgcn_model_gru import TGCN_GRU
 from sign_dataset import Sign_Dataset
-from train_utils import train, validation
+from sign_dataset_mp import SignDatasetMP
+from train_utils_tgcn import train, validation
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
@@ -24,25 +27,55 @@ def run(split_file, pose_data_root, configs, save_model_to=None):
     num_stages = configs.num_stages
 
     # setup dataset
-    train_dataset = Sign_Dataset(index_file_path=split_file, split=['train', 'val'], pose_root=pose_data_root,
+    print("LOADING DATASETS...")
+
+    # WLASL DATASETS
+    train_dataset = Sign_Dataset(index_file_path=split_file, split=['train'], pose_root=pose_data_root,
                                  img_transforms=None, video_transforms=None, num_samples=num_samples)
 
     train_data_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=configs.batch_size,
                                                     shuffle=True)
 
-    val_dataset = Sign_Dataset(index_file_path=split_file, split='test', pose_root=pose_data_root,
+    val_dataset = Sign_Dataset(index_file_path=split_file, split='val', pose_root=pose_data_root,
                                img_transforms=None, video_transforms=None,
                                num_samples=num_samples,
                                sample_strategy='k_copies')
     val_data_loader = torch.utils.data.DataLoader(dataset=val_dataset, batch_size=configs.batch_size,
                                                   shuffle=True)
 
+    # MEDIAPIPE DATASETS
+    # train_dataset = SignDatasetMP(index_file_path=split_file,
+    #                               keypoint_path='../../data/keypoints.h5', 
+    #                               split_path='../I3D/preprocess/nslt_100.json', 
+    #                               split=['train'], 
+    #                               num_samples=50,
+    #                               sample_strategy='rnd_start')
+    # train_data_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=configs.batch_size,
+    #                                                 shuffle=True)
+    
+    # val_dataset = SignDatasetMP(index_file_path=split_file,
+    #                               keypoint_path='../../data/keypoints.h5', 
+    #                               split_path='../I3D/preprocess/nslt_100.json', 
+    #                               split='val', 
+    #                               num_samples=50,
+    #                               sample_strategy='k_copies')
+    # val_data_loader = torch.utils.data.DataLoader(dataset=val_dataset, batch_size=configs.batch_size,
+    #                                                 shuffle=True)
+
     logging.info('\n'.join(['Class labels are: '] + [(str(i) + ' - ' + label) for i, label in
                                                      enumerate(train_dataset.label_encoder.classes_)]))
 
+
+
     # setup the model
+    print("LOADING MODEL...")
     model = GCN_muti_att(input_feature=num_samples*2, hidden_feature=num_samples*2,
                          num_class=len(train_dataset.label_encoder.classes_), p_dropout=drop_p, num_stage=num_stages).cuda()
+
+    print("MODEL LOADED...")
+    # model = GCN_muti_att(input_feature=num_samples*2, hidden_feature=num_samples*2,
+    #                      num_class=len(train_dataset.label_encoder.classes_), p_dropout=drop_p, num_stage=num_stages)
+
 
     # setup training parameters, learning rate, optimizer, scheduler
     lr = configs.init_lr
@@ -60,17 +93,13 @@ def run(split_file, pose_data_root, configs, save_model_to=None):
     for epoch in range(int(epochs)):
         # train, test model
 
-        print('start training.')
+        print('STARTING TRAINING...')
         train_losses, train_scores, train_gts, train_preds = train(log_interval, model,
                                                                    train_data_loader, optimizer, epoch)
-        print('start testing.')
+        print('STARTING TESTING...')
         val_loss, val_score, val_gts, val_preds, incorrect_samples = validation(model,
                                                                                 val_data_loader, epoch,
                                                                                 save_to=save_model_to)
-        # print('start testing.')
-        # val_loss, val_score, val_gts, val_preds, incorrect_samples = validation(model,
-        #                                                                         val_data_loader, epoch,
-        #                                                                         save_to=save_model_to)
 
         logging.info('========================\nEpoch: {} Average loss: {:.4f}'.format(epoch, val_loss))
         logging.info('Top-1 acc: {:.4f}'.format(100 * val_score[0]))
@@ -108,13 +137,12 @@ def run(split_file, pose_data_root, configs, save_model_to=None):
 
 
 if __name__ == "__main__":
-    root = '/media/anudisk/github/WLASL'
-
     subset = 'asl100'
 
-    split_file = os.path.join(root, 'data/splits/{}.json'.format(subset))
-    pose_data_root = os.path.join(root, 'data/pose_per_individual_videos')
-    config_file = os.path.join(root, 'code/TGCN/configs/{}.ini'.format(subset))
+    split_file = os.path.join('../../data/splits/{}.json'.format(subset))
+    pose_data_root = os.path.join('../../data/pose_per_individual_videos')
+    config_file = os.path.join('configs/{}.ini'.format(subset))
+    print(os.getcwd())
     configs = Config(config_file)
 
     logging.basicConfig(filename='output/{}.log'.format(os.path.basename(config_file)[:-4]), level=logging.DEBUG, filemode='w+')
@@ -122,4 +150,3 @@ if __name__ == "__main__":
     logging.info('Calling main.run()')
     run(split_file=split_file, configs=configs, pose_data_root=pose_data_root)
     logging.info('Finished main.run()')
-    # utils.plot_curves()

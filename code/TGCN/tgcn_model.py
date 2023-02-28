@@ -9,8 +9,6 @@ import torch
 import torch.nn as nn
 from torch.nn.parameter import Parameter
 
-import numpy as np
-
 
 class GraphConvolution_att(nn.Module):
     """
@@ -18,6 +16,11 @@ class GraphConvolution_att(nn.Module):
     """
 
     def __init__(self, in_features, out_features, bias=True, init_A=0):
+        """
+        in_features: Number of features from the previous layer
+            - Or if there is no previous layer, then it's the length of the flattened coordinates (usually 2*num_samples)
+        out_features: Number of features we want to output from HW
+        """
         super(GraphConvolution_att, self).__init__()
         self.in_features = in_features
         self.out_features = out_features
@@ -37,9 +40,25 @@ class GraphConvolution_att(nn.Module):
             self.bias.data.uniform_(-stdv, stdv)
 
     def forward(self, input):
-        # AHW
-        support = torch.matmul(input, self.weight)  # HW
-        output = torch.matmul(self.att, support)  # g
+        # H (input): (batch_size, num_keypoints, in_features)
+        #   - We store a set number of features (in_features) for each keypoint.
+        #   - In the first layer, the H is equal to the (num_keypoints, 2*num_samples) input matrix X.
+
+        # W (weight):  (in_features, out_features)
+        #   - We can change out_features to control the number of output features.
+
+        # HW (batch_size, num_keypoints, out_features): i.e. we multiply each X_i in the batch by W.
+        #       - Essentially, HW is a matrix that stores a set number of features (determined by out_features) for
+        #         each keypoint.
+        support = torch.matmul(input, self.weight)
+
+        # A (adjacency matrix): (num_keypoints, num_keypoints)
+
+        # AHW (output): (batch_size, num_keypoints, out_features)
+        #   - For each keypoint K in AHW, we calculate its corresponding features f as follows:
+        #       - Compute the weighted sum between the edge weights from K to every other keypoint and 
+        #         the value of f for each keypoint.
+        output = torch.matmul(self.att, support)  # g = A*HW
         if self.bias is not None:
             return output + self.bias
         else:
@@ -80,6 +99,7 @@ class GC_Block(nn.Module):
         y = self.bn2(y.view(b, -1)).view(b, n, f)
         y = self.act_f(y)
         y = self.do(y)
+
         if self.is_resi:
             return y + x
         else:

@@ -10,6 +10,7 @@ import torch
 import torch.nn as nn
 
 import utils
+from configs import Config
 
 from torch.utils.data import Dataset
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
@@ -42,7 +43,7 @@ def read_pose_file(filepath):
     frame_id = path_parts[1][:11]
     vid = os.path.split(path_parts[0])[-1]
 
-    save_to = os.path.join('/home/dxli/workspace/nslt/code/Pose-GCN/posegcn/features', vid)
+    save_to = os.path.join('features', vid)
 
     try:
         ft = torch.load(os.path.join(save_to, frame_id + '_ft.pt'))
@@ -86,7 +87,7 @@ def read_pose_file(filepath):
         frame_id = path_parts[1][:11]
         vid = os.path.split(path_parts[0])[-1]
 
-        save_to = os.path.join('code/Pose-GCN/posegcn/features', vid)
+        save_to = os.path.join('features', vid)
         if not os.path.exists(save_to):
             os.mkdir(save_to)
         torch.save(ft, os.path.join(save_to, frame_id + '_ft.pt'))
@@ -310,4 +311,20 @@ if __name__ == '__main__':
     #     print(x.size())
     #     print(y.size())
 
-    print(k_copies_fixed_length_sequential_sampling(0, 2, 20, num_copies=3))
+    data_root = '../../../../../../large/u2008310/data'
+    subset = 'asl100'
+
+    split_file = os.path.join(data_root, f'splits/{subset}.json')
+    pose_data_root = os.path.join(data_root, 'pose_per_individual_videos')
+    config_file = os.path.join('configs/{}.ini'.format(subset))
+    configs = Config(config_file)
+    num_samples = configs.num_samples
+    train_dataset = Sign_Dataset(index_file_path=split_file, split='train', pose_root=pose_data_root,
+                                 img_transforms=None, video_transforms=None, num_samples=num_samples)
+    train_data_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=configs.batch_size,
+                                                    shuffle=True)
+    
+    for data in train_data_loader:
+        X, y, _ = data
+        print(X.shape)
+        exit()
